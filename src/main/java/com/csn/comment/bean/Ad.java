@@ -5,11 +5,13 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @JsonInclude(Include.NON_NULL)
 public class Ad extends BaseBean {
+    //用封装类型而不是基本类型方便判断空
     private Long id;
     private String title;
     private String imgFileName;
     private String link;
     private Long weight;
+
     public String getTitle() {
         return title;
     }
@@ -40,5 +42,7 @@ public class Ad extends BaseBean {
     public void setWeight(Long weight) {
         this.weight = weight;
     }
+
+
     
 }

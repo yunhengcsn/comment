@@ -13,6 +13,7 @@
 </head>
 <body style="background: #e1e9eb;">
 <%--包含图片上传，所以enctype="multipart/form-data"--%>
+<%--表单控件name与controlle bean的属性名一样即可传入--%>
 <form id="mainForm" method="post" action="${basePath}/ad/add" enctype="multipart/form-data">
     <input type="hidden" id="message" value="${pageCode.msg}"/>
     <input type="hidden" id="basePath" value="${basePath}"/>

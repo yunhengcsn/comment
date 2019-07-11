@@ -1,3 +1,4 @@
+//类似命名空间，防止与第三方插件同名，不用{}
 var common = window.common || {};
 
 /**

@@ -1,6 +1,7 @@
 package com.csn.comment.dto;
 
 import com.csn.comment.bean.Ad;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -8,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
  *
  * @author csn
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class AdDto extends Ad {
     private String img;
 

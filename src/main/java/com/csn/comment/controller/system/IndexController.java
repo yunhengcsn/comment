@@ -14,6 +14,6 @@ public class IndexController {
 
     @RequestMapping
     public String init() {
-        return "system/index";
+        return "/WEB-INF/index";
     }
 }

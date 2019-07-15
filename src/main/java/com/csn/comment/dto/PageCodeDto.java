@@ -1,6 +1,6 @@
 package com.csn.comment.dto;
 
-import org.imooc.constant.PageCodeEnum;
+import com.csn.comment.constant.PageCodeEnum;
 
 public class PageCodeDto {
     

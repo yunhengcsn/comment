@@ -1,6 +1,6 @@
-package org.imooc.service;
+package com.csn.comment.service;
 
-import org.imooc.dto.ActionDto;
+import com.csn.comment.dto.ActionDto;
 
 public interface ActionService {
 	

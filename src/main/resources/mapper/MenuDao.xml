@@ -4,14 +4,14 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="org.imooc.dao.MenuDao">
+<mapper namespace="com.csn.comment.dao.MenuDao">
 	
 	<resultMap type="Menu" id="MenuResultMap">
 		<id column="id" property="id" />
 		<id column="name" property="name" />
 		<id column="url" property="url" />
 		<id column="parent_id" property="parentId" />
-		<collection property="actionList" javaType="list" resultMap="org.imooc.dao.ActionDao.ActionResultMap"/>
+		<collection property="actionList" javaType="list" resultMap="com.csn.comment.dao.ActionDao.ActionResultMap"/>
 	</resultMap>
 
 	<select id="selectWithAction" resultMap="MenuResultMap">

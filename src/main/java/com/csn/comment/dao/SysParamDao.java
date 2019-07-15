@@ -1,6 +1,6 @@
-package org.imooc.dao;
+package com.csn.comment.dao;
 
-import org.imooc.bean.SysParam;
+import com.csn.comment.bean.SysParam;
 
 public interface SysParamDao {
 	

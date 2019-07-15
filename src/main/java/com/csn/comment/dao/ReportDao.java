@@ -1,4 +1,4 @@
-package org.imooc.dao;
+package com.csn.comment.dao;
 
 import java.util.List;
 import java.util.Map;

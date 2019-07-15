@@ -1,4 +1,4 @@
-package org.imooc.service;
+package com.csn.comment.service;
 
 public interface MemberService {
     

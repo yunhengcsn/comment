@@ -1,8 +1,8 @@
-package org.imooc.service;
+package com.csn.comment.service;
 
 import java.util.List;
 
-import org.imooc.bean.Dic;
+import com.csn.comment.bean.Dic;
 
 public interface DicService {
     /**
@@ -10,5 +10,5 @@ public interface DicService {
      * @param type 类型
      * @return 字典表列表
      */
-    public List<Dic> getListByType(String type);
+    List<Dic> getListByType(String type);
 }

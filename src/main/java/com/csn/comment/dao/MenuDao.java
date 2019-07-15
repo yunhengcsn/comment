@@ -1,8 +1,8 @@
-package org.imooc.dao;
+package com.csn.comment.dao;
 
 import java.util.List;
 
-import org.imooc.bean.Menu;
+import com.csn.comment.bean.Menu;
 
 public interface MenuDao {
 	

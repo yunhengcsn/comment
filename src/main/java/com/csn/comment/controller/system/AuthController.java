@@ -1,7 +1,7 @@
-package org.imooc.controller.system;
+package com.csn.comment.controller.system;
 
-import org.imooc.constant.DicTypeConst;
-import org.imooc.service.DicService;
+import com.csn.comment.constant.DicTypeConst;
+import com.csn.comment.service.DicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,6 +1,6 @@
-package org.imooc.dto;
+package com.csn.comment.dto;
 
-import org.imooc.bean.Menu;
+import com.csn.comment.bean.Menu;
 
 public class MenuDto extends Menu {
 	

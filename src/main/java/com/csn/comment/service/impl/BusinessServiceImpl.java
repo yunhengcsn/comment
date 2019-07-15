@@ -1,4 +1,4 @@
-package org.imooc.service.impl;
+package com.csn.comment.service.impl;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -6,15 +6,17 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.imooc.bean.Business;
-import org.imooc.bean.Page;
-import org.imooc.constant.CategoryConst;
-import org.imooc.dao.BusinessDao;
-import org.imooc.dto.BusinessDto;
-import org.imooc.dto.BusinessListDto;
-import org.imooc.service.BusinessService;
-import org.imooc.util.CommonUtil;
-import org.imooc.util.FileUtil;
+import com.csn.comment.bean.Business;
+import com.csn.comment.bean.Page;
+import com.csn.comment.constant.CategoryConst;
+import com.csn.comment.dao.BusinessDao;
+import com.csn.comment.dto.BusinessDto;
+import com.csn.comment.dto.BusinessListDto;
+import com.csn.comment.service.BusinessService;
+import com.csn.comment.util.CommonUtil;
+import com.csn.comment.util.FileUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -30,6 +32,8 @@ public class BusinessServiceImpl implements BusinessService {
 
 	@Value("${businessImage.url}")
 	private String url;
+
+	private final static Logger logger = LoggerFactory.getLogger(BusinessServiceImpl.class);
 
 	@Override
 	public BusinessDto getById(Long id) {
@@ -119,7 +123,7 @@ public class BusinessServiceImpl implements BusinessService {
 				businessDao.insert(business);
 				return true;
 			} catch (IllegalStateException | IOException e) {
-				// TODO 需要添加日志
+				logger.info("saveImgFile Failed");
 				return false;
 			}
 		} else {

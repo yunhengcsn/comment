@@ -10,6 +10,7 @@
         	$(function () {
         		common.showMessage('${pageCode.msg}');
         		var topWindow = window;
+        		//让登录页处于顶层window
         		while(topWindow.parent != topWindow) {
         			topWindow = topWindow.parent;
         		}

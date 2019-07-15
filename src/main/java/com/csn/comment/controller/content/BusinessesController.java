@@ -1,12 +1,12 @@
-package org.imooc.controller.content;
+package com.csn.comment.controller.content;
 
 import javax.annotation.Resource;
 
-import org.imooc.constant.DicTypeConst;
-import org.imooc.constant.PageCodeEnum;
-import org.imooc.dto.BusinessDto;
-import org.imooc.service.BusinessService;
-import org.imooc.service.DicService;
+import com.csn.comment.constant.DicTypeConst;
+import com.csn.comment.constant.PageCodeEnum;
+import com.csn.comment.dto.BusinessDto;
+import com.csn.comment.service.BusinessService;
+import com.csn.comment.service.DicService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;

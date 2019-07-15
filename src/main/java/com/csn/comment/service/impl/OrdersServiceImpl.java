@@ -1,15 +1,15 @@
-package org.imooc.service.impl;
+package com.csn.comment.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.imooc.bean.Orders;
-import org.imooc.constant.CommentStateConst;
-import org.imooc.dao.OrdersDao;
-import org.imooc.dto.OrdersDto;
-import org.imooc.service.OrdersService;
+import com.csn.comment.bean.Orders;
+import com.csn.comment.constant.CommentStateConst;
+import com.csn.comment.dao.OrdersDao;
+import com.csn.comment.dto.OrdersDto;
+import com.csn.comment.service.OrdersService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

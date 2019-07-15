@@ -1,10 +1,10 @@
-package org.imooc.service;
+package com.csn.comment.service;
 
 import java.util.List;
 
-import org.imooc.dto.MenuDto;
-import org.imooc.dto.MenuForMoveDto;
-import org.imooc.dto.MenuForZtreeDto;
+import com.csn.comment.dto.MenuDto;
+import com.csn.comment.dto.MenuForMoveDto;
+import com.csn.comment.dto.MenuForZtreeDto;
 
 public interface MenuService {
 	

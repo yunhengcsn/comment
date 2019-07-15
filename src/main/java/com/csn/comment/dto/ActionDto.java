@@ -1,6 +1,6 @@
-package org.imooc.dto;
+package com.csn.comment.dto;
 
-import org.imooc.bean.Action;
+import com.csn.comment.bean.Action;
 
 public class ActionDto extends Action {
 

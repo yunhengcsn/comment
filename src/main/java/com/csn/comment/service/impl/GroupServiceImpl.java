@@ -1,20 +1,20 @@
-package org.imooc.service.impl;
+package com.csn.comment.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.imooc.bean.Action;
-import org.imooc.bean.Group;
-import org.imooc.bean.GroupAction;
-import org.imooc.bean.GroupMenu;
-import org.imooc.bean.Menu;
-import org.imooc.dao.GroupActionDao;
-import org.imooc.dao.GroupDao;
-import org.imooc.dao.GroupMenuDao;
-import org.imooc.dto.ActionDto;
-import org.imooc.dto.GroupDto;
-import org.imooc.dto.MenuDto;
-import org.imooc.service.GroupService;
+import com.csn.comment.bean.Action;
+import com.csn.comment.bean.Group;
+import com.csn.comment.bean.GroupAction;
+import com.csn.comment.bean.GroupMenu;
+import com.csn.comment.bean.Menu;
+import com.csn.comment.dao.GroupActionDao;
+import com.csn.comment.dao.GroupDao;
+import com.csn.comment.dao.GroupMenuDao;
+import com.csn.comment.dto.ActionDto;
+import com.csn.comment.dto.GroupDto;
+import com.csn.comment.dto.MenuDto;
+import com.csn.comment.service.GroupService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

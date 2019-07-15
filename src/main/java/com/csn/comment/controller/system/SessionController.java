@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import org.imooc.constant.SessionKeyConst;
-import org.imooc.dto.MenuDto;
+import com.csn.comment.constant.SessionKeyConst;
+import com.csn.comment.dto.MenuDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

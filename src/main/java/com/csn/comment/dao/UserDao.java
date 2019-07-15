@@ -1,8 +1,8 @@
-package org.imooc.dao;
+package com.csn.comment.dao;
 
 import java.util.List;
 
-import org.imooc.bean.User;
+import com.csn.comment.bean.User;
 
 public interface UserDao {
 

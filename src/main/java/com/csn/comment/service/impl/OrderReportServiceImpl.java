@@ -1,4 +1,4 @@
-package org.imooc.service.impl;
+package com.csn.comment.service.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,10 +7,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.imooc.dao.ReportDao;
-import org.imooc.dto.echarts.Option;
-import org.imooc.dto.echarts.Serie;
-import org.imooc.service.OrderReportService;
+import com.csn.comment.dao.ReportDao;
+import com.csn.comment.dto.echarts.Option;
+import com.csn.comment.dto.echarts.Serie;
+import com.csn.comment.service.OrderReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +24,7 @@ public class OrderReportServiceImpl implements OrderReportService {
 	public Option count() {
 		Option option = new Option();
 		List<Map<String, String>> list = reportDao.countOrder();
-		// 类别
+		// 类别，TreeSet保证每次查询顺序不变
 		Set<String> categoryNameSet = new TreeSet<>();
 		// 类别+时间为KEY，数量为VALUE
 		Map<String,Long> countMap = new HashMap<String,Long>();
@@ -37,6 +37,7 @@ public class OrderReportServiceImpl implements OrderReportService {
 		// 设置参数的X轴坐标
 		List<String> hours = new ArrayList<String>();
 		for(int i = 0; i <= 23; i++) {
+//			固定2位，不足则补齐
 			hours.add(String.format("%02d", i));
 		}
 		option.getxAxis().setData(hours);
@@ -47,7 +48,7 @@ public class OrderReportServiceImpl implements OrderReportService {
 			serie.setName(categoryName);
 			serie.setType("line");
 			for(String hour : hours) {
-				serie.getData().add(countMap.get(categoryName + hour) == null ? 0 : countMap.get(categoryName + hour));
+				serie.getData().add(countMap.get(categoryName + hour) == null ? 0L : countMap.get(categoryName + hour));
 			}
 		}
 		return option;

@@ -1,15 +1,15 @@
-package org.imooc.service;
+package com.csn.comment.service;
 
 import java.util.List;
 
-import org.imooc.dto.BusinessDto;
-import org.imooc.dto.BusinessListDto;
+import com.csn.comment.dto.BusinessDto;
+import com.csn.comment.dto.BusinessListDto;
 
 public interface BusinessService {
 	
 	/**
 	 * 新增
-	 * @param BusinessDto 商户dto对象
+	 * @param businessDto 商户dto对象
 	 * @return 是否新增成功：true-成功;fale-失败
 	 */
 	boolean add(BusinessDto businessDto);

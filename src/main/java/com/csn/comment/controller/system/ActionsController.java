@@ -1,9 +1,9 @@
 package com.csn.comment.controller.system;
 
-import org.imooc.constant.PageCodeEnum;
-import org.imooc.dto.ActionDto;
-import org.imooc.dto.PageCodeDto;
-import org.imooc.service.ActionService;
+import com.csn.comment.constant.PageCodeEnum;
+import com.csn.comment.dto.ActionDto;
+import com.csn.comment.dto.PageCodeDto;
+import com.csn.comment.service.ActionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

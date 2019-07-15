@@ -1,8 +1,8 @@
-package org.imooc.service;
+package com.csn.comment.service;
 
 import java.util.List;
 
-import org.imooc.dto.UserDto;
+import com.csn.comment.dto.UserDto;
 
 public interface UserService {
 	

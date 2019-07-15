@@ -2,12 +2,12 @@ package com.csn.comment.controller.system;
 
 import java.util.List;
 
-import org.imooc.constant.PageCodeEnum;
-import org.imooc.dto.MenuDto;
-import org.imooc.dto.MenuForMoveDto;
-import org.imooc.dto.MenuForZtreeDto;
-import org.imooc.dto.PageCodeDto;
-import org.imooc.service.MenuService;
+import com.csn.comment.constant.PageCodeEnum;
+import com.csn.comment.dto.MenuDto;
+import com.csn.comment.dto.MenuForMoveDto;
+import com.csn.comment.dto.MenuForZtreeDto;
+import com.csn.comment.dto.PageCodeDto;
+import com.csn.comment.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

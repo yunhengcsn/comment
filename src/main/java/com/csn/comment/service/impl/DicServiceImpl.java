@@ -1,10 +1,10 @@
-package org.imooc.service.impl;
+package com.csn.comment.service.impl;
 
 import java.util.List;
 import javax.annotation.Resource;
-import org.imooc.bean.Dic;
-import org.imooc.dao.DicDao;
-import org.imooc.service.DicService;
+import com.csn.comment.bean.Dic;
+import com.csn.comment.dao.DicDao;
+import com.csn.comment.service.DicService;
 import org.springframework.stereotype.Service;
 
 @Service

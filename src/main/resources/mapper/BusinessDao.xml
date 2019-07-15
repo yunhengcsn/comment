@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.imooc.dao.BusinessDao">
+<mapper namespace="com.csn.comment.dao.BusinessDao">
 	<resultMap type="Business" id="BusinessResultMap">
 		<id column="id" property="id" />
 		<result column="img_file_name" property="imgFileName" />
@@ -42,9 +42,9 @@
 		from
 		business b
 		left join dic d_city on b.city=d_city.code and
-		d_city.type='${@org.imooc.constant.DicTypeConst@CITY}'
+		d_city.type='${@com.csn.comment.constant.DicTypeConst@CITY}'
 		left join dic d_category on
-		b.category=d_category.code and d_category.type='${@org.imooc.constant.DicTypeConst@CATEGORY}'
+		b.category=d_category.code and d_category.type='${@com.csn.comment.constant.DicTypeConst@CATEGORY}'
 		<where>
 			<if test="title != null and title != ''">
 				and b.title like '%' #{title} '%'

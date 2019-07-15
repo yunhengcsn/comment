@@ -1,9 +1,9 @@
-package org.imooc.service.impl;
+package com.csn.comment.service.impl;
 
-import org.imooc.bean.Action;
-import org.imooc.dao.ActionDao;
-import org.imooc.dto.ActionDto;
-import org.imooc.service.ActionService;
+import com.csn.comment.bean.Action;
+import com.csn.comment.dao.ActionDao;
+import com.csn.comment.dto.ActionDto;
+import com.csn.comment.service.ActionService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

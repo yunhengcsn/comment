@@ -6,10 +6,10 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.imooc.bean.SysParam;
-import org.imooc.constant.SysParamKeyConst;
-import org.imooc.dao.BusinessDao;
-import org.imooc.dao.SysParamDao;
+import com.csn.comment.bean.SysParam;
+import com.csn.comment.constant.SysParamKeyConst;
+import com.csn.comment.dao.BusinessDao;
+import com.csn.comment.dao.SysParamDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;

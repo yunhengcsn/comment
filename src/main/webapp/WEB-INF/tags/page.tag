@@ -1,6 +1,6 @@
 <%@ tag language="java" pageEncoding="UTF-8" %>
 <%@ attribute type="com.csn.comment.bean.Page" name="page" required="true" %>
-<%@ attribute type="String" name="jsMethodName" required="true" %>
+<%@ attribute type="java.lang.String" name="jsMethodName" required="true" %>
 
 <script type="text/javascript">
     function transCurrentPage(currentPage) {

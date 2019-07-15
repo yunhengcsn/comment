@@ -1,15 +1,15 @@
-package org.imooc.service.impl;
+package com.csn.comment.service.impl;
 
 import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.imooc.bean.Member;
-import org.imooc.cache.CodeCache;
-import org.imooc.cache.TokenCache;
-import org.imooc.dao.MemberDao;
-import org.imooc.service.MemberService;
-import org.imooc.util.MD5Util;
+import com.csn.comment.bean.Member;
+import com.csn.comment.cache.CodeCache;
+import com.csn.comment.cache.TokenCache;
+import com.csn.comment.dao.MemberDao;
+import com.csn.comment.service.MemberService;
+import com.csn.comment.util.MD5Util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -53,12 +53,14 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void saveToken(String token, Long phone) {
+		// TODO 在真实环境中，改成借助第三方实现
 		TokenCache tokenCache = TokenCache.getInstance();
 		tokenCache.save(token, phone);
 	}
 
 	@Override
 	public Long getPhone(String token) {
+		// TODO 在真实环境中，改成借助第三方实现
 		TokenCache tokenCache = TokenCache.getInstance();
 		return tokenCache.getPhone(token);
 	}

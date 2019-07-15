@@ -1,8 +1,8 @@
-package org.imooc.service;
+package com.csn.comment.service;
 
-import org.imooc.bean.Page;
-import org.imooc.dto.CommentForSubmitDto;
-import org.imooc.dto.CommentListDto;
+import com.csn.comment.bean.Page;
+import com.csn.comment.dto.CommentForSubmitDto;
+import com.csn.comment.dto.CommentListDto;
 
 public interface CommentService {
     

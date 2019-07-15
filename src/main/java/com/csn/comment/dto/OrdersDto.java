@@ -1,6 +1,6 @@
 package com.csn.comment.dto;
 
-import org.imooc.bean.Orders;
+import com.csn.comment.bean.Orders;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;

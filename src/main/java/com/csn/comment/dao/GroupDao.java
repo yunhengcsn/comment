@@ -1,8 +1,8 @@
-package org.imooc.dao;
+package com.csn.comment.dao;
 
 import java.util.List;
 
-import org.imooc.bean.Group;
+import com.csn.comment.bean.Group;
 
 public interface GroupDao {
 

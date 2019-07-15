@@ -4,6 +4,9 @@ import com.csn.comment.bean.Ad;
 import com.csn.comment.dao.AdDao;
 import com.csn.comment.dto.AdDto;
 import com.csn.comment.service.AdService;
+import com.csn.comment.util.FileUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,60 +33,88 @@ public class AdServiceImpl implements AdService {
     @Value("${adImage.url}")
     private String adImageUrl;
 
-    /**
-     * 新增广告
-     *
-     * @param adDto
-     * @return 新增成功返回true，失败false
-     */
+    private final static Logger logger = LoggerFactory.getLogger(AdServiceImpl.class);
+
     @Override
-    //TODO 可以获取失败原因
+    // TODO 可以改成获取失败详细原因
     public boolean add(AdDto adDto) {
         Ad ad = new Ad();
         ad.setTitle(adDto.getTitle());
         ad.setLink(adDto.getLink());
         ad.setWeight(adDto.getWeight());
-
-        //校验，前端校验可被绕过
-        if(adDto.getImgFile() != null && adDto.getImgFile().getSize() > 0) {
-            //加时间戳防止同名
+        if (adDto.getImgFile() != null && adDto.getImgFile().getSize() > 0) {
             String fileName = System.currentTimeMillis() + "_" + adDto.getImgFile().getOriginalFilename();
             File file = new File(adImageSavePath + fileName);
-
-            //校验文件夹是否存在，不存在则创建
             File fileFolder = new File(adImageSavePath);
-            if(! fileFolder.exists()) {
+            if (!fileFolder.exists()) {
                 fileFolder.mkdirs();
             }
-
             try {
                 adDto.getImgFile().transferTo(file);
                 ad.setImgFileName(fileName);
                 adDao.insert(ad);
                 return true;
-            } catch (IOException e) {
-                //TODO 打日志
+            } catch (IllegalStateException | IOException e) {
+                logger.info("saveImgFile Failed!");
                 return false;
             }
         } else {
             return false;
         }
+    }
 
+    public List<AdDto> searchByPage(AdDto adDto) {
+        List<AdDto> result = new ArrayList<AdDto>();
+        Ad condition = new Ad();
+        BeanUtils.copyProperties(adDto, condition);
+        List<Ad> adList = adDao.selectByPage(condition);
+        for (Ad ad : adList) {
+            AdDto adDtoTemp = new AdDto();
+            result.add(adDtoTemp);
+            adDtoTemp.setImg(adImageUrl + ad.getImgFileName());
+            BeanUtils.copyProperties(ad, adDtoTemp);
+        }
+        return result;
     }
 
     @Override
-    public List<AdDto> searchByPage(AdDto adDto) {
-        List<AdDto> result = new ArrayList<>();
-        Ad condition = new Ad();
-        //bean 拷贝
-        BeanUtils.copyProperties(adDto,condition);
-        List<Ad> adList = adDao.selectByPage(condition);
-        for(Ad ad : adList) {
-            AdDto adDto1 = new AdDto();
-            BeanUtils.copyProperties(ad,adDto1);
-            adDto1.setImg(adImageUrl + ad.getImgFileName());
-            result.add(adDto1);
-        }
+    public AdDto getById(Long id) {
+        AdDto result = new AdDto();
+        Ad ad = adDao.selectById(id);
+        BeanUtils.copyProperties(ad, result);
+        result.setImg(adImageUrl + ad.getImgFileName());
         return result;
+    }
+
+    @Override
+    public boolean modify(AdDto adDto) {
+        Ad ad = new Ad();
+        BeanUtils.copyProperties(adDto, ad);
+        String fileName = null;
+        if (adDto.getImgFile() != null && adDto.getImgFile().getSize() > 0) {
+            try {
+                fileName = FileUtil.save(adDto.getImgFile(), adImageSavePath);
+                ad.setImgFileName(fileName);
+            } catch (IllegalStateException | IOException e) {
+                logger.info("saveImgFile Failed!");
+                return false;
+            }
+        }
+        int updateCount = adDao.update(ad);
+        if (updateCount != 1) {
+            return false;
+        }
+        if (fileName != null) {
+            return FileUtil.delete(adImageSavePath + adDto.getImgFileName());
+        }
+        return true;
+    }
+
+    @Override
+    public boolean remove(Long id) {
+        Ad ad = adDao.selectById(id);
+        int deleteRows = adDao.delete(id);
+        FileUtil.delete(adImageSavePath + ad.getImgFileName());
+        return deleteRows == 1;
     }
 }

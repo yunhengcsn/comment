@@ -2,7 +2,7 @@ package com.csn.comment.dto;
 
 import java.util.List;
 
-import org.imooc.bean.Group;
+import com.csn.comment.bean.Group;
 
 public class GroupDto extends Group {
 

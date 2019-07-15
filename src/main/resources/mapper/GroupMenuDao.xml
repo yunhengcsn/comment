@@ -4,7 +4,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="org.imooc.dao.GroupMenuDao">
+<mapper namespace="com.csn.comment.dao.GroupMenuDao">
 
 	<insert id="insertBatch">
 		insert into sys_group_menu(group_id,menu_id) values

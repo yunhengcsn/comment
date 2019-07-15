@@ -5,9 +5,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-import org.imooc.dto.echarts.Option;
-import org.imooc.dto.echarts.Serie;
-import org.imooc.service.OrderReportService;
+import com.csn.comment.dto.echarts.Option;
+import com.csn.comment.dto.echarts.Serie;
+import com.csn.comment.service.OrderReportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +28,7 @@ public class OrderReportController {
 	
 	@ResponseBody
 	@RequestMapping(value="/count" , method = RequestMethod.GET)
+//	TODO 用定时任务
 	public Option count() {
 		Option option = orderReportService.count();
 		

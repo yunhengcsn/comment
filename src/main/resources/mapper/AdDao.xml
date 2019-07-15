@@ -18,30 +18,30 @@
         order by weight desc,id
     </select>
 
-<!--    <select id="selectById" resultType="Ad">-->
-<!--		select id,title,img_file_name,link,weight from ad where id=#{_parameter}-->
-<!--	</select>-->
+    <select id="selectById" resultType="Ad">
+		select id,title,img_file_name,link,weight from ad where id=#{_parameter}
+	</select>
 
-<!--    <update id="update">-->
-<!--        update ad-->
-<!--        <set>-->
-<!--            <if test="title != null">-->
-<!--                title = #{title},-->
-<!--            </if>-->
-<!--            <if test="imgFileName != null">-->
-<!--                img_file_name = #{imgFileName},-->
-<!--            </if>-->
-<!--            <if test="link != null">-->
-<!--                link = #{link},-->
-<!--            </if>-->
-<!--            <if test="weight != null">-->
-<!--                weight = #{weight},-->
-<!--            </if>-->
-<!--        </set>-->
-<!--        where id=#{id}-->
-<!--    </update>-->
+    <update id="update">
+        update ad
+        <set>
+            <if test="title != null">
+                title = #{title},
+            </if>
+            <if test="imgFileName != null">
+                img_file_name = #{imgFileName},
+            </if>
+            <if test="link != null">
+                link = #{link},
+            </if>
+            <if test="weight != null">
+                weight = #{weight},
+            </if>
+        </set>
+        where id=#{id}
+    </update>
 
-<!--    <delete id="delete">-->
-<!--		delete from ad where id=#{_parameter}-->
-<!--	</delete>-->
+    <delete id="delete">
+		delete from ad where id=#{_parameter}
+	</delete>
 </mapper>

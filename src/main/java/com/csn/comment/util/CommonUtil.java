@@ -5,8 +5,8 @@ import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
 
-import org.imooc.constant.SessionKeyConst;
-import org.imooc.dto.ActionDto;
+import com.csn.comment.constant.SessionKeyConst;
+import com.csn.comment.dto.ActionDto;
 
 /**
  * 共通工具类.

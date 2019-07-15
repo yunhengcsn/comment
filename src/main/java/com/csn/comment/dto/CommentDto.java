@@ -1,6 +1,6 @@
-package org.imooc.dto;
+package com.csn.comment.dto;
 
-import org.imooc.bean.Comment;
+import com.csn.comment.bean.Comment;
 
 public class CommentDto extends Comment {
     

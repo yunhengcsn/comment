@@ -1,6 +1,6 @@
 package com.csn.comment.dto;
 
-import org.imooc.bean.User;
+import com.csn.comment.bean.User;
 
 public class UserDto extends User {
     

@@ -1,14 +1,14 @@
-package org.imooc.service.impl;
+package com.csn.comment.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.imooc.bean.User;
-import org.imooc.dao.UserDao;
-import org.imooc.dto.UserDto;
-import org.imooc.service.UserService;
-import org.imooc.util.CommonUtil;
-import org.imooc.util.MD5Util;
+import com.csn.comment.bean.User;
+import com.csn.comment.dao.UserDao;
+import com.csn.comment.dto.UserDto;
+import com.csn.comment.service.UserService;
+import com.csn.comment.util.CommonUtil;
+import com.csn.comment.util.MD5Util;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

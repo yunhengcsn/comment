@@ -1,8 +1,8 @@
-package org.imooc.dao;
+package com.csn.comment.dao;
 
 import java.util.List;
 
-import org.imooc.bean.Orders;
+import com.csn.comment.bean.Orders;
 
 public interface OrdersDao {
 	

@@ -1,6 +1,6 @@
-package org.imooc.service;
+package com.csn.comment.service;
 
-import org.imooc.dto.echarts.Option;
+import com.csn.comment.dto.echarts.Option;
 
 public interface OrderReportService {
 	

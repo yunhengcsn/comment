@@ -3,7 +3,7 @@ package com.csn.comment.controller.interceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.imooc.constant.SessionKeyConst;
+import com.csn.comment.constant.SessionKeyConst;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -25,8 +25,10 @@ public class SessionInterceptor implements HandlerInterceptor {
 		// 针对ajax请求处理
 		if (request.getHeader("x-requested-with") != null) {
 			String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
+			//给ajax做响应
 			response.setHeader("url", basePath + "/login/sessionTimeout");
 		} else {
+			//ajax不是跳转，而是直接拿到页面内容
 			request.getRequestDispatcher("/login/sessionTimeout").forward(request, response);
 		}
 		return false;
@@ -38,7 +40,7 @@ public class SessionInterceptor implements HandlerInterceptor {
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		// TODO Auto-generated method stub
+
 
 	}
 
@@ -48,7 +50,7 @@ public class SessionInterceptor implements HandlerInterceptor {
 	@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
-		// TODO Auto-generated method stub
+
 
 	}
 

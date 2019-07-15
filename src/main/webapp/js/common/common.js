@@ -18,6 +18,7 @@ common.ajax = function(param) {
 		timeout : 10000
 	} , param , {
 		complete : function(response) {
+			//校验session超时
 			var url = response.getResponseHeader("url");
 			if(url) {
 				location.href = url;

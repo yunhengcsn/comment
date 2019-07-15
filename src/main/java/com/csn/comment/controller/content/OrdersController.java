@@ -1,4 +1,4 @@
-package org.imooc.controller.content;
+package com.csn.comment.controller.content;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

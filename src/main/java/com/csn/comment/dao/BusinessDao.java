@@ -1,10 +1,10 @@
-package org.imooc.dao;
+package com.csn.comment.dao;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import org.imooc.bean.Business;
+import com.csn.comment.bean.Business;
 
 public interface BusinessDao {
 	

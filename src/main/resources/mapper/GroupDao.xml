@@ -4,7 +4,7 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="org.imooc.dao.GroupDao">
+<mapper namespace="com.csn.comment.dao.GroupDao">
 	
 	
 	<resultMap type="Group" id="GroupResultMap">
@@ -21,7 +21,7 @@
 			<result column="parent_id" property="parentId"/>
 			<result column="order_num" property="orderNum"/>
 		</collection>
-		<collection property="actionList" javaType="list" resultMap="org.imooc.dao.ActionDao.ActionResultMap"/>
+		<collection property="actionList" javaType="list" resultMap="com.csn.comment.dao.ActionDao.ActionResultMap"/>
 		
 		
 	</resultMap>

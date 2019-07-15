@@ -1,6 +1,6 @@
-package org.imooc.dao;
+package com.csn.comment.dao;
 
-import org.imooc.bean.Action;
+import com.csn.comment.bean.Action;
 
 public interface ActionDao {
 	

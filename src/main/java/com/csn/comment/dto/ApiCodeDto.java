@@ -1,6 +1,6 @@
-package org.imooc.dto;
+package com.csn.comment.dto;
 
-import org.imooc.constant.ApiCodeEnum;
+import com.csn.comment.constant.ApiCodeEnum;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;

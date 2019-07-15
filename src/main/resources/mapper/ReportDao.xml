@@ -4,7 +4,8 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="org.imooc.dao.ReportDao">
+<mapper namespace="com.csn.comment.dao.ReportDao">
+<!--	当前时间前一天，cast做类型转换避免泛型擦除-->
 	<select id="countOrder" resultType="java.util.HashMap">
 		select d.name categoryName,date_format(o.create_time,'%H') `hour`,cast(count(1) as CHAR) `count`
 		from business b,orders o,dic d

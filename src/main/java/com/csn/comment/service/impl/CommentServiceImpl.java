@@ -1,4 +1,4 @@
-package org.imooc.service.impl;
+package com.csn.comment.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -6,17 +6,17 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.imooc.bean.Business;
-import org.imooc.bean.Comment;
-import org.imooc.bean.Orders;
-import org.imooc.bean.Page;
-import org.imooc.constant.CommentStateConst;
-import org.imooc.dao.CommentDao;
-import org.imooc.dao.OrdersDao;
-import org.imooc.dto.CommentDto;
-import org.imooc.dto.CommentForSubmitDto;
-import org.imooc.dto.CommentListDto;
-import org.imooc.service.CommentService;
+import com.csn.comment.bean.Business;
+import com.csn.comment.bean.Comment;
+import com.csn.comment.bean.Orders;
+import com.csn.comment.bean.Page;
+import com.csn.comment.constant.CommentStateConst;
+import com.csn.comment.dao.CommentDao;
+import com.csn.comment.dao.OrdersDao;
+import com.csn.comment.dto.CommentDto;
+import com.csn.comment.dto.CommentForSubmitDto;
+import com.csn.comment.dto.CommentListDto;
+import com.csn.comment.service.CommentService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,16 +1,16 @@
-package org.imooc.service.impl;
+package com.csn.comment.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.imooc.bean.Action;
-import org.imooc.bean.Menu;
-import org.imooc.dao.ActionDao;
-import org.imooc.dao.MenuDao;
-import org.imooc.dto.MenuDto;
-import org.imooc.dto.MenuForMoveDto;
-import org.imooc.dto.MenuForZtreeDto;
-import org.imooc.service.MenuService;
+import com.csn.comment.bean.Action;
+import com.csn.comment.bean.Menu;
+import com.csn.comment.dao.ActionDao;
+import com.csn.comment.dao.MenuDao;
+import com.csn.comment.dto.MenuDto;
+import com.csn.comment.dto.MenuForMoveDto;
+import com.csn.comment.dto.MenuForZtreeDto;
+import com.csn.comment.service.MenuService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

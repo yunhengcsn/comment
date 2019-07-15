@@ -1,6 +1,6 @@
 package com.csn.comment.dto;
 
-import org.imooc.bean.Business;
+import com.csn.comment.bean.Business;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonInclude;

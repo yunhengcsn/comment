@@ -9,10 +9,12 @@ import com.csn.comment.cache.CodeCache;
 import com.csn.comment.cache.TokenCache;
 import com.csn.comment.dao.MemberDao;
 import com.csn.comment.service.MemberService;
+import com.csn.comment.util.JedisUtil;
 import com.csn.comment.util.MD5Util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import redis.clients.jedis.Jedis;
 
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -33,9 +35,10 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public boolean saveCode(Long phone, String code) {
-		// TODO 在真实环境中，改成借助第三方实现
-		CodeCache codeCache = CodeCache.getInstance();
-		return codeCache.save(phone, MD5Util.getMD5(code));
+		Jedis jedis = JedisUtil.getJedis();
+		return jedis.hset("codes",phone.toString(),MD5Util.getMD5(code)).equals("OK");
+//		CodeCache codeCache = CodeCache.getInstance();
+//		return codeCache.save(phone, MD5Util.getMD5(code));
 	}
 
 	@Override
@@ -46,23 +49,26 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public String getCode(Long phone) {
-		// TODO 在真实环境中，改成借助第三方实现
-		CodeCache codeCache = CodeCache.getInstance();
-		return codeCache.getCode(phone);
+		Jedis jedis = JedisUtil.getJedis();
+		return jedis.hget("codes",phone.toString());
+//		CodeCache codeCache = CodeCache.getInstance();
+//		return codeCache.getCode(phone);
 	}
 
 	@Override
 	public void saveToken(String token, Long phone) {
-		// TODO 在真实环境中，改成借助第三方实现
-		TokenCache tokenCache = TokenCache.getInstance();
-		tokenCache.save(token, phone);
+		Jedis jedis = JedisUtil.getJedis();
+		jedis.hset("tokens",token,phone.toString());
+//		TokenCache tokenCache = TokenCache.getInstance();
+//		tokenCache.save(token, phone);
 	}
 
 	@Override
 	public Long getPhone(String token) {
-		// TODO 在真实环境中，改成借助第三方实现
-		TokenCache tokenCache = TokenCache.getInstance();
-		return tokenCache.getPhone(token);
+		Jedis jedis = JedisUtil.getJedis();
+		return Long.parseLong(jedis.hget("tokens",token));
+//		TokenCache tokenCache = TokenCache.getInstance();
+//		return tokenCache.getPhone(token);
 	}
 
 	@Override

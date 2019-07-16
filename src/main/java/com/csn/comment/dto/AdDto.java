@@ -11,18 +11,11 @@ import org.springframework.web.multipart.MultipartFile;
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class AdDto extends Ad {
+    //图片路径
     private String img;
-
-    public MultipartFile getImgFile() {
-        return imgFile;
-    }
-
-    public void setImgFile(MultipartFile imgFile) {
-        this.imgFile = imgFile;
-    }
-
     //要与表单中file控件的name相同
     private MultipartFile imgFile;
+
 
     public String getImg() {
         return img;
@@ -30,5 +23,13 @@ public class AdDto extends Ad {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public void setImgFile(MultipartFile imgFile) {
+        this.imgFile = imgFile;
+    }
+
+    public MultipartFile getImgFile() {
+        return imgFile;
     }
 }

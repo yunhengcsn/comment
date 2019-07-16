@@ -69,15 +69,15 @@ public class CommentServiceImpl implements CommentService {
 		
 		// 组织返回值
 		List<CommentDto> data = new ArrayList<>();
-		result.setData(data);
 		for(Comment commentTemp : commentList) {
 			CommentDto commentDto = new CommentDto();
-			data.add(commentDto);
 			BeanUtils.copyProperties(commentTemp, commentDto);
 			// 隐藏手机号中间4位
 			StringBuffer phoneBuffer = new StringBuffer(String.valueOf(commentTemp.getOrders().getMember().getPhone()));
 			commentDto.setUsername(phoneBuffer.replace(3, 7, "****").toString());
+			data.add(commentDto);
 		}
+		result.setData(data);
 		result.setHasMore(page.getCurrentPage() < page.getTotalPage());
 		return result;
 	}

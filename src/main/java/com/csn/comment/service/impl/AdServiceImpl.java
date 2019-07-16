@@ -64,15 +64,17 @@ public class AdServiceImpl implements AdService {
     }
 
     public List<AdDto> searchByPage(AdDto adDto) {
-        List<AdDto> result = new ArrayList<AdDto>();
+        List<AdDto> result = new ArrayList<>();
         Ad condition = new Ad();
+        //利用spring提供的方法拷贝对象
         BeanUtils.copyProperties(adDto, condition);
         List<Ad> adList = adDao.selectByPage(condition);
         for (Ad ad : adList) {
             AdDto adDtoTemp = new AdDto();
-            result.add(adDtoTemp);
+            //图片路径加上url
             adDtoTemp.setImg(adImageUrl + ad.getImgFileName());
             BeanUtils.copyProperties(ad, adDtoTemp);
+            result.add(adDtoTemp);
         }
         return result;
     }

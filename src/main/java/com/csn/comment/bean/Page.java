@@ -22,6 +22,11 @@ public class Page {
 	public int getTotalNumber() {
 		return totalNumber;
 	}
+
+	public void setTotalNumber(int totalNumber) {
+		this.totalNumber = totalNumber;
+		this.count();
+	}
 	
 	private void count() {
 		this.totalPage = this.totalNumber / this.pageNumber;
@@ -38,25 +43,21 @@ public class Page {
 			this.currentPage = 1;
 		}
 	}
-	
-	public void setTotalNumber(int totalNumber) {
-		this.totalNumber = totalNumber;
-		this.count();
-	}
-	
+
 	public int getCurrentPage() {
 		return currentPage;
 	}
 	public void setCurrentPage(int currentPage) {
 		this.currentPage = currentPage;
 	}
+
 	public int getTotalPage() {
-		
 		return totalPage;
 	}
 	public void setTotalPage(int totalPage) {
 		this.totalPage = totalPage;
 	}
+
 	public int getPageNumber() {
 		return pageNumber;
 	}

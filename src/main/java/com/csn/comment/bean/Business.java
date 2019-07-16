@@ -3,6 +3,21 @@ package com.csn.comment.bean;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+/**
+ * 数据库表结构相对应
+ * id	int(11)	NO	PRI		auto_increment
+ * img_file_name	varchar(100)	YES		***去掉下划线
+ * title	varchar(50)	YES
+ * subtitle	varchar(100)	YES
+ * price	decimal(11,2)	YES
+ * distance	int(11)	YES
+ * number	int(11)	YES
+ * desc	varchar(500)	YES
+ * city	varchar(16)	YES
+ * category	varchar(16)	YES
+ * star_total_num	int(11)	YES
+ * comment_total_num	int(11)	YES
+ */
 @JsonInclude(Include.NON_NULL)
 public class Business extends BaseBean {
     

@@ -12,7 +12,6 @@ public class BusinessDto extends Business{
     private String img;
     private MultipartFile imgFile;
     private String keyword;
-    private Integer mumber;
     private Integer star;
     
     public String getImg() {
@@ -32,12 +31,6 @@ public class BusinessDto extends Business{
     }
     public void setKeyword(String keyword) {
         this.keyword = keyword;
-    }
-    public Integer getMumber() {
-        return mumber;
-    }
-    public void setMumber(Integer mumber) {
-        this.mumber = mumber;
     }
 	public Integer getStar() {
 		return star;

@@ -5,6 +5,13 @@ import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+/**
+ * id	int(11)	NO	PRI		auto_increment
+ * orders_id	int(11)	YES
+ * comment	varchar(500)	YES
+ * star	int(1)	YES
+ * create_time	datetime	YES	MUL
+ */
 @JsonInclude(Include.NON_NULL)
 public class Comment extends BaseBean {
 	

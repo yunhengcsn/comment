@@ -71,7 +71,7 @@ public class BusinessServiceImpl implements BusinessService {
 		Business businessForSelect = new Business();
 		BeanUtils.copyProperties(businessDto, businessForSelect);
 		// 当关键字不为空时，把关键字的值分别设置到标题、副标题、描述中
-		// TODO 改进做法：全文检索
+		// TODO 改进做法：全文检索，借助ElasticSearch
 		if (!CommonUtil.isEmpty(businessDto.getKeyword())) {
 			businessForSelect.setTitle(businessDto.getKeyword());
 			businessForSelect.setSubtitle(businessDto.getKeyword());
@@ -94,12 +94,10 @@ public class BusinessServiceImpl implements BusinessService {
 		// 对查询出的结果进行格式化
 		for (Business business : list) {
 			BusinessDto businessDtoTemp = new BusinessDto();
-			result.getData().add(businessDtoTemp);
 			BeanUtils.copyProperties(business, businessDtoTemp);
 			businessDtoTemp.setImg(url + business.getImgFileName());
-			// 为兼容前端mumber这个属性
-			businessDtoTemp.setMumber(business.getNumber());
 			businessDtoTemp.setStar(this.getStar(business));
+			result.getData().add(businessDtoTemp);
 		}
 
 		return result;

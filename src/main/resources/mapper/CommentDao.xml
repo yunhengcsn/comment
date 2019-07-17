@@ -19,7 +19,7 @@
 	<select id="selectByPage" resultMap="CommentResultMap">
 		select c.id,c.orders_id,c.comment,c.star,c.create_time,m.phone
 		from comment c,orders o,business b,member m
-		where c.orders_id = o.id and o.business_id = b.id and o.memberId = m.id
+		where c.orders_id = o.id and o.business_id = b.id
 		<if test="orders.business.id != null">
 			and b.id = #{orders.business.id}
 		</if>

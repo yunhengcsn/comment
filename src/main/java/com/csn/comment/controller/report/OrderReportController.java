@@ -28,7 +28,6 @@ public class OrderReportController {
 	
 	@ResponseBody
 	@RequestMapping(value="/count" , method = RequestMethod.GET)
-//	TODO 用定时任务
 	public Option count() {
 		Option option = orderReportService.count();
 		

@@ -36,7 +36,10 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public boolean saveCode(Long phone, String code) {
 		Jedis jedis = JedisUtil.getJedis();
-		return jedis.hset("codes",phone.toString(),MD5Util.getMD5(code)).equals("OK");
+		String res = jedis.set(phone.toString(),code);
+		//加超时限制
+		jedis.expire(phone.toString(),600);
+		return "OK".equals(res);
 //		CodeCache codeCache = CodeCache.getInstance();
 //		return codeCache.save(phone, MD5Util.getMD5(code));
 	}
@@ -50,7 +53,7 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public String getCode(Long phone) {
 		Jedis jedis = JedisUtil.getJedis();
-		return jedis.hget("codes",phone.toString());
+		return jedis.get(phone.toString());
 //		CodeCache codeCache = CodeCache.getInstance();
 //		return codeCache.getCode(phone);
 	}

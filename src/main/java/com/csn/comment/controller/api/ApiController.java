@@ -114,7 +114,6 @@ public class ApiController {
     @RequestMapping(value = "/submitComment", method = RequestMethod.POST)
     public ApiCodeDto submitComment(CommentForSubmitDto dto) {
         ApiCodeDto result;
-        // TODO 需要完成的步骤：
         // 1、校验登录信息：token、手机号
         Long phone = memberService.getPhone(dto.getToken());
         if (phone != null && phone.equals(dto.getUsername())) {

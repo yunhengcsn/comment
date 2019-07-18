@@ -22,14 +22,14 @@ public class JedisUtil {
             logger.info("JeidsUtils getInstence...");
             try {
                 JedisPoolConfig conf = new JedisPoolConfig();
-                conf.setMaxIdle(ConfigUtil.maxIdle);
-                conf.setTestOnBorrow(ConfigUtil.testOnBorrow);
+                conf.setMaxIdle(RedisConfigUtil.maxIdle);
+                conf.setTestOnBorrow(RedisConfigUtil.testOnBorrow);
                 //当配置中配置有password时，则创建带密码的缓存池
-                if (ConfigUtil.password != null && !"".equals(ConfigUtil.password)) {
-                    JEDISPOOL = new JedisPool(conf, ConfigUtil.ip, ConfigUtil.port, ConfigUtil.timeout, ConfigUtil.password);
+                if (RedisConfigUtil.password != null && !"".equals(RedisConfigUtil.password)) {
+                    JEDISPOOL = new JedisPool(conf, RedisConfigUtil.ip, RedisConfigUtil.port, RedisConfigUtil.timeout, RedisConfigUtil.password);
                 } else {
                     //没有配置则用无密码的缓存池。
-                    JEDISPOOL = new JedisPool(conf, ConfigUtil.ip, ConfigUtil.port, ConfigUtil.timeout);
+                    JEDISPOOL = new JedisPool(conf, RedisConfigUtil.ip, RedisConfigUtil.port, RedisConfigUtil.timeout);
                 }
             } catch (Exception e) {
                 logger.error("加载【redis.properties】异常,异常信息为：" + e.getMessage());
@@ -63,9 +63,9 @@ public class JedisUtil {
         logger.info("redis put ... key =[" + key + "]");
         try {
             jedis.hset(SerializeUtil.serialize(id), SerializeUtil.serialize(key), SerializeUtil.serialize(value));
-            ConfigUtil.setSucc();
+            RedisConfigUtil.setSucc();
         } catch (Exception e) {
-            ConfigUtil.setFail();
+            RedisConfigUtil.setFail();
             logger.error("redis执行异常【" + e.getMessage() + "】");
         } finally {
             closeJedis(jedis);
@@ -78,10 +78,10 @@ public class JedisUtil {
         try {
             Object object = SerializeUtil.unserialize(jedis.hget(SerializeUtil.serialize(id), SerializeUtil.serialize(key)));
             logger.info("redis get ... key=[" + key + "],value=[" + object + "]");
-            ConfigUtil.setSucc();
+            RedisConfigUtil.setSucc();
             return object;
         } catch (Exception e) {
-            ConfigUtil.setFail();
+            RedisConfigUtil.setFail();
             logger.error("Redis执行异常【" + e.getMessage() + "】");
         } finally {
             closeJedis(jedis);
@@ -95,10 +95,10 @@ public class JedisUtil {
         Jedis jedis = getJedis();
         try {
             Long num = jedis.hdel(id.toString(), key.toString());
-            ConfigUtil.setSucc();
+            RedisConfigUtil.setSucc();
             return num;
         } catch (Exception e) {
-            ConfigUtil.setFail();
+            RedisConfigUtil.setFail();
             logger.error("Redis执行异常，异常信息：" + e.getMessage());
         } finally {
             closeJedis(jedis);
@@ -111,9 +111,9 @@ public class JedisUtil {
         Jedis jedis = getJedis();
         try {
             jedis.del(id);
-            ConfigUtil.setSucc();
+            RedisConfigUtil.setSucc();
         } catch (Exception e) {
-            ConfigUtil.setFail();
+            RedisConfigUtil.setFail();
             logger.error("Redis执行异常【" + e.getMessage() + "】");
         } finally {
             closeJedis(jedis);
@@ -127,7 +127,7 @@ public class JedisUtil {
         try {
             return jedis.hgetAll(SerializeUtil.serialize(id)).size();
         } catch (Exception e) {
-            ConfigUtil.setFail();
+            RedisConfigUtil.setFail();
             logger.error("Redis执行异常【" + e.getMessage() + "】");
         } finally {
             closeJedis(jedis);

@@ -1,6 +1,8 @@
 package com.csn.comment.bean;
 
-public class GroupMenu {
+import java.io.Serializable;
+
+public class GroupMenu implements Serializable {
 	
 	private Long groupId;
 	private Long menuId;

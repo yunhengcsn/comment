@@ -1,6 +1,8 @@
 package com.csn.comment.bean;
 
-public class GroupAction {
+import java.io.Serializable;
+
+public class GroupAction implements Serializable {
 	
 	private Long groupId;
 	private Long actionId;

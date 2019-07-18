@@ -1,8 +1,9 @@
 package com.csn.comment.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Group {
+public class Group implements Serializable {
 	
 	private Long id;
 	private String name;

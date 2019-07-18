@@ -1,8 +1,9 @@
 package com.csn.comment.bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class SysParam {
+public class SysParam implements Serializable {
 	
 	private String paramKey;
 	private Date paramValue;

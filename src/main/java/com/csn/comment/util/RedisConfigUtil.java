@@ -11,8 +11,8 @@ import java.util.Properties;
  *
  * @author csn
  */
-public class ConfigUtil {
-    private static Logger logger= LoggerFactory.getLogger(ConfigUtil.class);
+public class RedisConfigUtil {
+    private static Logger logger= LoggerFactory.getLogger(RedisConfigUtil.class);
 
     public static boolean redisSwitch;
     public static int maxIdle;
@@ -47,14 +47,14 @@ public class ConfigUtil {
     }
     //对redis开关进行设置,有三种情况：1.如果现在开关开，则关闭redispool  2.如果开关关闭，则设置redispool为开启状态  3.现在状态和要设置的状态一致，不做操作。
     public static void setSwitch(boolean redisSwitch){
-        if(true==ConfigUtil.redisSwitch && false== redisSwitch){
+        if(true== RedisConfigUtil.redisSwitch && false== redisSwitch){
             logger.info("switch:open-->close");
             JedisUtil.closeJedisPool();
-        }else if(ConfigUtil.redisSwitch==false && true == redisSwitch){
+        }else if(RedisConfigUtil.redisSwitch==false && true == redisSwitch){
             logger.info("switch:close-->open");
             JedisUtil.getInstance();
         }
-        ConfigUtil.redisSwitch=redisSwitch;
+        RedisConfigUtil.redisSwitch=redisSwitch;
     }
     //当redis连接异常超过一定数量之后，不再走redis,但是没有一个机制，当reids恢复后重新使用redis
     public static void setFail(){

@@ -3,8 +3,10 @@ package com.csn.comment.bean;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+import java.io.Serializable;
+
 @JsonInclude(Include.NON_NULL)
-public class Orders {
+public class Orders implements Serializable {
 	private Long id;
 	private Long memberId;
 	private Long businessId;

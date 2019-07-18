@@ -32,10 +32,10 @@ public class RedisCache implements Cache {
         if (cacheId == null) {
             throw new IllegalArgumentException("Cache instances require an ID");
         }
-        this.cacheId = ConfigUtil.key + "." + cacheId;
+        this.cacheId = RedisConfigUtil.key + "." + cacheId;
         logger.info("查询结果存入缓存对应的缓存空间生成的名字cacheId: " + this.cacheId);
 
-        if (ConfigUtil.redisSwitch) {
+        if (RedisConfigUtil.redisSwitch) {
             JedisUtil.getInstance();
         }
     }
@@ -49,7 +49,7 @@ public class RedisCache implements Cache {
     public void putObject(Object key, Object value) {
         // TODO 从缓存中写数据，用写锁锁定，不允许读
         logger.info("NTSRedisCache putObject=" + cacheId);
-        if (ConfigUtil.redisSwitch) {
+        if (RedisConfigUtil.redisSwitch) {
             write.lock();
             try {
                 JedisUtil.put(cacheId, key, value);
@@ -65,7 +65,7 @@ public class RedisCache implements Cache {
         // TODO 从缓存中读数据，用读锁锁定，不允许写
 //        logger.info("从缓存cacheId="+cacheId+"中拿数据key="+key+"对应的value");
         logger.info("》》》》》》》》》》》》》》》》》在缓存中根据cacheid=" + cacheId + "  拿对应的key和value");
-        if (ConfigUtil.redisSwitch) {
+        if (RedisConfigUtil.redisSwitch) {
             read.lock();
             try {
                 return JedisUtil.get(cacheId, key);
@@ -80,7 +80,7 @@ public class RedisCache implements Cache {
     public Object removeObject(Object key) {
         // TODO 从缓存中改动数据，用写锁锁定，不允许读，改动结束后释放写锁。
         logger.info("NTSRedisCache clear =" + cacheId);
-        if (ConfigUtil.redisSwitch) {
+        if (RedisConfigUtil.redisSwitch) {
             write.lock();
             try {
                 return JedisUtil.remove(cacheId, key);
@@ -95,7 +95,7 @@ public class RedisCache implements Cache {
     public void clear() {
         // TODO  从缓存中改动数据，用写锁锁定，不允许读，改动结束后释放写锁。
         logger.info("NTSRedisCache clear =" + cacheId);
-        if (ConfigUtil.redisSwitch) {
+        if (RedisConfigUtil.redisSwitch) {
             write.lock();
             try {
                 JedisUtil.removeAll(cacheId);
@@ -109,7 +109,7 @@ public class RedisCache implements Cache {
     public int getSize() {
         // TODO Auto-generated method stub
         logger.info("NTSRedisCache clear =" + cacheId);
-        if (ConfigUtil.redisSwitch) {
+        if (RedisConfigUtil.redisSwitch) {
             read.lock();
             try {
                 return JedisUtil.getSize(cacheId);

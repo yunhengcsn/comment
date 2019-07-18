@@ -1,6 +1,8 @@
 package com.csn.comment.bean;
 
-public class BaseBean {
+import java.io.Serializable;
+
+public class BaseBean implements Serializable {
 	
 	private Page page;
 	

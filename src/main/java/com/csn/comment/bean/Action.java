@@ -1,6 +1,8 @@
 package com.csn.comment.bean;
 
-public class Action {
+import java.io.Serializable;
+
+public class Action implements Serializable {
 	
 	private Long id;
 	private String name;

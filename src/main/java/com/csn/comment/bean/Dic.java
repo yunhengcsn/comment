@@ -1,6 +1,8 @@
 package com.csn.comment.bean;
 
-public class Dic {
+import java.io.Serializable;
+
+public class Dic implements Serializable {
     private String type;
     private String code;
     private String name;

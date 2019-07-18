@@ -1,6 +1,8 @@
 package com.csn.comment.bean;
 
-public class Member {
+import java.io.Serializable;
+
+public class Member implements Serializable {
 	
 	private Long id;
 	

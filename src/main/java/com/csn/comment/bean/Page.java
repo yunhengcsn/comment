@@ -1,9 +1,11 @@
 package com.csn.comment.bean;
 
+import java.io.Serializable;
+
 /**
  * 分页对象
  */
-public class Page {
+public class Page implements Serializable {
 	
 	// 总条数
 	private int totalNumber;

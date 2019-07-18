@@ -36,10 +36,14 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public boolean saveCode(Long phone, String code) {
 		Jedis jedis = JedisUtil.getJedis();
-		String res = jedis.set(phone.toString(),code);
-		//加超时限制
-		jedis.expire(phone.toString(),600);
-		return "OK".equals(res);
+		try{
+			String res = jedis.set(phone.toString(),code);
+			//加超时限制
+			jedis.expire(phone.toString(),600);
+			return "OK".equals(res);
+		} finally {
+			JedisUtil.closeJedis(jedis);
+		}
 //		CodeCache codeCache = CodeCache.getInstance();
 //		return codeCache.save(phone, MD5Util.getMD5(code));
 	}
@@ -53,15 +57,24 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public String getCode(Long phone) {
 		Jedis jedis = JedisUtil.getJedis();
-		return jedis.get(phone.toString());
-//		CodeCache codeCache = CodeCache.getInstance();
+		try{
+			return jedis.get(phone.toString());
+		} finally {
+			JedisUtil.closeJedis(jedis);
+		}
+		//		CodeCache codeCache = CodeCache.getInstance();
 //		return codeCache.getCode(phone);
 	}
 
 	@Override
 	public void saveToken(String token, Long phone) {
 		Jedis jedis = JedisUtil.getJedis();
-		jedis.hset("tokens",token,phone.toString());
+		try {
+			jedis.hset("tokens",token,phone.toString());
+		} finally {
+			JedisUtil.closeJedis(jedis);
+		}
+
 //		TokenCache tokenCache = TokenCache.getInstance();
 //		tokenCache.save(token, phone);
 	}
@@ -69,7 +82,12 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public Long getPhone(String token) {
 		Jedis jedis = JedisUtil.getJedis();
-		return Long.parseLong(jedis.hget("tokens",token));
+		try {
+			return Long.parseLong(jedis.hget("tokens",token));
+		} finally {
+			JedisUtil.closeJedis(jedis);
+		}
+
 //		TokenCache tokenCache = TokenCache.getInstance();
 //		return tokenCache.getPhone(token);
 	}

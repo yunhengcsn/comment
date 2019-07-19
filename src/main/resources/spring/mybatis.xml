@@ -6,7 +6,8 @@
 		<setting name="useGeneratedKeys" value="true"/>
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
 	</settings>
-	
+
+
 	<plugins>
 		<plugin interceptor="com.csn.comment.dao.interceptor.PageInterceptor"/>
 	</plugins>

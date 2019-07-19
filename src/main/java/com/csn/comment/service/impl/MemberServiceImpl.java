@@ -5,12 +5,9 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import com.csn.comment.bean.Member;
-import com.csn.comment.cache.CodeCache;
-import com.csn.comment.cache.TokenCache;
 import com.csn.comment.dao.MemberDao;
 import com.csn.comment.service.MemberService;
-import com.csn.comment.util.JedisUtil;
-import com.csn.comment.util.MD5Util;
+import com.csn.comment.redis.JedisUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

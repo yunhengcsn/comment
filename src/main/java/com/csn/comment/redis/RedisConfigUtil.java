@@ -1,4 +1,4 @@
-package com.csn.comment.util;
+package com.csn.comment.redis;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

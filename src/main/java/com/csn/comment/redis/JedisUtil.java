@@ -1,4 +1,4 @@
-package com.csn.comment.util;
+package com.csn.comment.redis;
 
 import org.mybatis.caches.redis.SerializeUtil;
 import org.slf4j.Logger;

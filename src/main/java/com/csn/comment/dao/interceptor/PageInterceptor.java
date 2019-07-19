@@ -31,6 +31,7 @@ public class PageInterceptor implements Interceptor{
         if(id.endsWith("ByPage")) {
             BoundSql boundSql = statementHandler.getBoundSql();
             String sql = boundSql.getSql();
+//            这个t是结果集的别名  不加会报错
             String countSql = "select count(*) from(" + sql + ")t";
             Connection conn = (Connection)arg0.getArgs()[0];
             PreparedStatement statement = conn.prepareStatement(countSql);

@@ -1,4 +1,4 @@
-package com.csn.comment.util;
+package com.csn.comment.redis;
 
 
 import org.apache.ibatis.cache.Cache;
@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * Description:
+ * Description:  redis会自动的将Sql+条件+Hash等当做key值，而将查询结果作为value，只有请求中的所有参数都符合，那么就会使用redis中的二级缓存。
  *
  * @author csn
  */

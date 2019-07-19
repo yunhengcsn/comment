@@ -5,6 +5,13 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.csn.comment.dao.ReportDao">
+	<cache
+			type="com.csn.comment.redis.RedisCache"
+			eviction="LRU"
+			flushInterval="6000000"
+			size="1024"
+			readOnly="false"
+	/>
 <!--	当前时间前一天，cast做类型转换避免泛型擦除-->
 	<select id="countOrder" resultType="java.util.HashMap">
 		select d.name categoryName,date_format(o.create_time,'%H') `hour`,cast(count(1) as CHAR) `count`

@@ -10,10 +10,6 @@
 	<resultMap type="Group" id="GroupResultMap">
 		<id column="id" property="id" />
 		<id column="name" property="name" />
-		
-		<!-- 特意将两种写法放在一起,大家自己做个比对,一个是自己内部配置对应关系,而另一种,就是封装与引用的体现,不用到处引用的地方自己配：
-		                 这里的ActionResultMap在本系统中有两处引用(一个是MenuDao里，一个是这里),所以我把它配置到ActionDao中，然后两处对这个ResultMap引用,
-		                 但是要注意列名冲突,这里menuList里的menu_id与Action中的menu_id是不一样的，详细见【selectMenuListById】这条SQL语句，如果觉得这样混在一起非常难以理解，可以自己拆成两条SQL语句，我这里是为了省事 -->
 		<collection property="menuList" javaType="list" ofType="Menu">
 			<result column="menu_id" property="id"/>
 			<result column="menu_name" property="name"/>
